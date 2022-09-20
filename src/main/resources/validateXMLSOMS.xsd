@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<xsd:schema version="1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xsd:element name="event">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="eventId" >
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0"/>
+							<xsd:maxInclusive value="999999999"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="eventName">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="60"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>              
+                <xsd:element name="actionType">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:integer"> 
+                            <xsd:enumeration value="0" />
+                            <xsd:enumeration value="1" />
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="eventType">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:integer"> 
+                            <xsd:minInclusive value="0"/>
+							<xsd:maxInclusive value="15"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="eventCategory">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:integer"> 
+                            <xsd:minInclusive value="0"/>
+							<xsd:maxInclusive value="15"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="eventDate">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:pattern value="\d{4}-\d{2}-\d{2}"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="preferredStore">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:integer"> 
+                            <xsd:minInclusive value="0"/>
+							<xsd:maxInclusive value="9999"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="status">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:maxLength value="30"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="creationDate">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:pattern value="\d{4}-\d{2}-\d{2}"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="brandName">
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:maxLength value="5"/>
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:element>
+				<xsd:element name="eventOwnerDetails" minOccurs="1">
+                    <xsd:complexType>
+						<xsd:sequence>
+							<xsd:element minOccurs="1" maxOccurs="2" name="owner">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ownerId">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:integer"> 
+													<xsd:minInclusive value="0"/>
+													<xsd:maxInclusive value="999999999"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="ownerType">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="7"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="firstName">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="20"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="lastNameOrFatherName">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="20"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="motherName" minOccurs="0" maxOccurs="unbounded">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="20"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="nickName">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="20"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="email"  minOccurs="0" maxOccurs="unbounded">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="50"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="dateOfBirth" minOccurs="0" maxOccurs="unbounded">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:pattern value="\d{4}-\d{2}-\d{2}"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>
+										<xsd:element name="phone" minOccurs="0" maxOccurs="unbounded">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:maxLength value="13"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>	
+										<xsd:element name="gender">
+											<xsd:simpleType> 
+												<xsd:restriction base="xsd:string"> 
+													<xsd:pattern value="[F,M]{1}"/>
+												</xsd:restriction> 
+											</xsd:simpleType> 
+										</xsd:element>	
+										<xsd:element minOccurs="1"  name="preferredAddresses">
+										  <xsd:complexType>
+											<xsd:sequence>
+											  <xsd:element name="preferredAddress">
+												<xsd:complexType>
+												  <xsd:sequence>
+													<xsd:element name="addressId">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:pattern value="\d{6,}"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="eventRecipientIndex">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:integer"> 
+																<xsd:enumeration value="1" />
+																<xsd:enumeration value="2" />
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="nickName">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="20"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="firstName">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="20"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="lastNameOrFatherName">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="20"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="maternalName">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="20"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="country">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="6"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="city">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="50"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="stateId">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:pattern value="\d{1,}"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="state">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="20"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="delegationMunicipality">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="50"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="delegationMunicipalityId">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:pattern value="\d{4}"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="building">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="20"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="postalcode">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:pattern value="\d{5,}"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="neighbourhood">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="254"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="neighbourhoodId">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:pattern value="\d{4}"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="address1">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="150"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="address2">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="40"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="exteriorNumber">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="15"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="interiorNumber">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="15"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="particularPhoneCode">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="3"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="phoneNumber">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:integer"> 
+																<xsd:minInclusive value="0"/>
+																<xsd:maxInclusive value="99999999"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+													<xsd:element name="otherColony">
+														<xsd:simpleType> 
+															<xsd:restriction base="xsd:string"> 
+																<xsd:maxLength value="50"/>
+															</xsd:restriction> 
+														</xsd:simpleType> 
+													</xsd:element>
+												  </xsd:sequence>
+												</xsd:complexType>
+											  </xsd:element>
+											</xsd:sequence>
+										  </xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+                </xsd:element>   
+            </xsd:sequence>
+        </xsd:complexType>        
+    </xsd:element>
+</xsd:schema>
